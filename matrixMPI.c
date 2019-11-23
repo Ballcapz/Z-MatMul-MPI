@@ -41,6 +41,14 @@ int main(int argc, char *argv[])
 
 
 	int rowsPerWorker = size / worldSize; 
+
+	int extraRows = size % worldSize;
+	// if there is extra work to do
+	if (extraRows > 0)
+	{
+		rowsPerWorker += 1;	
+	}
+
 	int t1Row[size*rowsPerWorker], t3Row[size*rowsPerWorker];
 
 	//fill and print first 2 matrices
